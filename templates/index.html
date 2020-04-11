@@ -1,0 +1,28 @@
+{%extends 'basic.html'%}
+
+{%block body%}
+
+<div>
+  <div>
+    <h1 style="
+            margin-top: 3%;
+            margin-left: 35%;
+            font-size: -webkit-xxx-large;
+          ">
+      Resume Reader
+    </h1>
+  </div>
+  <div>
+    <h3 style="margin-left: 30%;">
+      Here you can upload your .pdf and .docx file.
+    </h3>
+    <form action="uploadfiles" method="post" enctype="multipart/form-data" style="margin-top: 3%; margin-left: 30%;">
+      {% csrf_token %}
+      <input type="file" id="myFile" name="filename" required />
+      <div style="margin-left: 20%; margin-top: 3%;">
+        <button type="submit" class="btn btn-dark">Upload</button>
+      </div>
+    </form>
+  </div>
+</div>
+{%endblock%}

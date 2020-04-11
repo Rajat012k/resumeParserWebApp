@@ -1,0 +1,33 @@
+{% extends 'basic.html' %}
+
+{% block body%}
+<script>
+  function onClickDownload() {
+    alert("The data has been stored in the same directory of the project in which you are working.");
+  }
+</script>
+<div style="margin-left: 30%; width: 30rem; margin-top: 5%;">
+  <div class="card-header">
+    Details Of The Resume
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Name: {{Name}}</h5>
+    <h5 class="card-title">Email Id: {{EmailID}}</h5>
+    <h5 class="card-title">Contact No.: {{Contact}}</h5>
+    <h5 class="card-title">No.Of Images: {{ImageCount}}</h5>
+    <h5 class="card-title">Linkedin: {{Linkedin}}</h5>
+    <h5 class="card-title">Fonts: {{FontName}}</h5>
+    <h5 class="card-title">Font-Size: {{FontSize}}</h5>
+    <h5 class="card-title">No. Of Table: {{Table}}</h5>
+    <h5 class="card-title">No Of Characters: {{CharLine}}</h5>
+    <p class="card-text">
+      Click on the download button to download the data.
+    </p>
+    <form method="POST" action="download" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <button type="submit" onclick="onClickDownload()" class="btn btn-dark">Download CSV</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
